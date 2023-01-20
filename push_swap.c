@@ -37,7 +37,7 @@ data    *ft_data_new(void)
     data    *new_data;
 
     new_data = NULL;
-    new_data =(data 0*)malloc(sizeof(data));
+    new_data =(data *)malloc(sizeof(data));
     stack_a = ft_stack_new();
     new_data->array = NULL;
     new_data->size_a = 0;
@@ -45,6 +45,25 @@ data    *ft_data_new(void)
     new_data->bottom_a = stack_a;
     new_data->size_b = 0;
     return(new_data);    
+}
+
+void    ft_check(int *array, int size)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while(i < size - 1)
+    {
+        j = i + 1;
+        while (array[j])
+        {
+            if (array[i] == array[j])
+                print_error(1);
+            j++;
+        }
+        i++;
+    }
 }
 
 int main(int ac, char *av[])
@@ -56,9 +75,10 @@ int main(int ac, char *av[])
     if(ac < 2)
         print_error(-1);
     array_size = 0;
-    data = ft_data_new;
+    data = ft_data_new();
     array_size = get_str_size(ac, av);
     array_nbr = ft_av_to_array(ac, av, array_size);
+    ft_check(array_nbr, array_size);
     ft_arr_to_stack(data, array_nbr, array_size);
     ft_check_array_sort(array_nbr, array_size, 0);
     data->array = (int *)array_nbr;

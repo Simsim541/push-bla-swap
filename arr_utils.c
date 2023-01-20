@@ -70,7 +70,7 @@ void    set_str_to_array(int *array, int *arr_index, char **str)
 	index = 0;
 	while (str[index])
 	{
-		tmp_number = ft_atoll(str[index]);
+		tmp_number = ft_atoil(str[index]);
 		array[*arr_index] = tmp_number;
 		(*arr_index)++;
 		index++;

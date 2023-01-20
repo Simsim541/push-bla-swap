@@ -32,7 +32,7 @@ int	get_str_size(int ac, char *av[])
 		if (av[index][checker] == '\0')
 			print_error(1);
 		split_str = ft_split(av[index], ' ');
-		size += get_size_split_str(split_str);
+		size += get_split_str_size(split_str);
 		ft_free_str(split_str);
 		index++;
 	}

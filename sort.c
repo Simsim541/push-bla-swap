@@ -41,7 +41,7 @@ void	ft_big_sort(data *info)
 			sa(info);
 	}
 	if (info->size_a == 3)
-		ft_sort_a_three(info);
+		ft_sort_three(info);
 	while (info->size_b)
 	{
 		a = 0;
